@@ -29,7 +29,7 @@ function LongCard(props) {
   );
 }
 
-const fooActions = () => {
+const SubCards = () => {
   return (
     <div className="container">
       <div className="row mt-4 justify-content-center justify-content-between">
@@ -42,4 +42,4 @@ const fooActions = () => {
   );
 };
 
-export default fooActions;
+export default SubCards;

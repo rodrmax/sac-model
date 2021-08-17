@@ -4,7 +4,6 @@ import { faSync, faCreditCard, faBox, faShieldAlt, faIdCard, faMobileAlt } from 
 
 function Card(props) {
   const { titleCard, cardName } = props;
-
   return (
     <div className="card" style={{ width: "26rem" }}>
       <div className="card-body">
@@ -27,7 +26,7 @@ function Card(props) {
   );
 }
 
-const MainActions = () => {
+const MainCards = () => {
   return (
     <div className="container mt-4">
       <div className="row justify-content-center justify-content-between">
@@ -44,4 +43,4 @@ const MainActions = () => {
   );
 };
 
-export default MainActions;
+export default MainCards;
