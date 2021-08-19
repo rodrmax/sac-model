@@ -11,7 +11,6 @@ function Sac() {
           {/* Header */}
           <HeaderTop />
 
-      
           <div className="d-flex flex-column">
             <div className="container p-0">
               <h3>Olá, como posso ajudar?</h3>
@@ -22,15 +21,17 @@ function Sac() {
             <SubCards />
           </div>
         </div>
-      </div>
 
-      <footer className="footer" hidden>
+        <footer className="footer mt-4">
         <div className="d-flex justify-content-center">
-          <p>
-            App Test Sac <strong>Mx</strong>
-          </p>
+          <span>
+            <strong>MOCKUP SAC</strong>
+          </span>
         </div>
       </footer>
+      </div>
+
+     
     </>
   );
 }

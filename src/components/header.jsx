@@ -15,7 +15,7 @@ const HeaderTop = () => {
         >
           <div className="d-flex">
             <span className="text-dark">
-              <h3>Atendimento (SAC)</h3>
+              <h3>Autoatendimento (SAC)</h3>
             </span>
           </div>
         </div>
