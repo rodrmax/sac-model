@@ -58,12 +58,13 @@ function Card(props) {
         >
           <div className="d-flex flex-row justify-content-around">
             <div
+             style={{ maxWidth: 72}}
               name="icon"
               className="d-flex align-items-center pt-4 pb-4 pe-4"
             >
               <FontAwesomeIcon icon={cardName} size="3x" color="#89b04b" />
             </div>
-            <div name="desc" style={{ minWidth: 286, minHeight: 72 }}>
+            <div name="desc">
               <h5 className="card-title font-color-green">{titleCard}</h5>
               <h6 className="card-subtitle mb-2 text-muted" hidden>
                 Card subtitle

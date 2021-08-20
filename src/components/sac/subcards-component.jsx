@@ -8,7 +8,7 @@ function LongCard(props) {
         src={`../assets/imagem/${imagem}`}
         className="card-img-top"
         alt="imagem"
-        style={{ maxHeight: 151 }}
+        style={{ maxHeight: 200 }}
       />
       <div className="card-body">
         <h5 className="card-title">{titleCard}</h5>
@@ -68,7 +68,7 @@ const SubCards = () => {
         />
         <LongCard
           titleCard="Central de atendimento cartão fidelidade"
-          imagem="compra-online.png"
+          imagem="fidelidade.png"
         />
       </div>
     </div>
