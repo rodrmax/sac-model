@@ -42,7 +42,7 @@ const infor = [
     icon: faShieldAlt,
     descricao:
       "Luctus quis nibh sit amet, placerat faucibus ante. Sed ut imperdiet felis.",
-  },
+  }
 ];
 
 function Card(props) {
