@@ -1,7 +1,7 @@
 import MainCards from "../../components/sac/maincards-component";
 import SubCards from "../../components/sac/subcards-component";
 import HeaderTop from "../../components/header";
-import FindComponent from "../../components/sac/find-component";
+import FindComponent from "../../components/sac/search-component";
 import TopicsComponent from "../../components/sac/topics-component";
 
 function Sac() {
