@@ -64,11 +64,11 @@ function Card(props) {
               <FontAwesomeIcon icon={cardName} size="3x" color="#89b04b" />
             </div>
             <div name="desc" style={{ minWidth: 286, minHeight: 72 }}>
-              <h5 className="card-title">{titleCard}</h5>
+              <h5 className="card-title font-color-green">{titleCard}</h5>
               <h6 className="card-subtitle mb-2 text-muted" hidden>
                 Card subtitle
               </h6>
-              <p className="card-text">{descCard}</p>
+              <p className="card-text font-color-green">{descCard}</p>
             </div>
           </div>
         </a>
