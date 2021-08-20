@@ -56,11 +56,11 @@ function Card(props) {
           data-toggle="modal"
           data-target="#exampleModalCenter"
         >
-          <div className="d-flex flex-row justify-content-around">
+          <div className="d-flex flex-row justify-content-start">
             <div
-             style={{ maxWidth: 72}}
+             style={{ minWidth: 72}}
               name="icon"
-              className="d-flex align-items-center pt-4 pb-4 pe-4"
+              className="d-flex justify-content-start pt-4 pb-4 pe-4"
             >
               <FontAwesomeIcon icon={cardName} size="3x" color="#89b04b" />
             </div>

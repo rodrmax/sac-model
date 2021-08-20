@@ -3,7 +3,7 @@ import React from "react";
 function LongCard(props) {
   const { titleCard, imagem, cardtype, margin } = props;
   return (
-    <div className={`card p-0 ${margin}`} style={{ width: "19.8rem" }}>
+    <div className={`card p-0 mb-3 ${margin}`} style={{ width: "19.8rem" }}>
       <img
         src={`../assets/imagem/${imagem}`}
         className="card-img-top"
