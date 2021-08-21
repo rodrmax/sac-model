@@ -8,6 +8,7 @@ import {
   faIdCard,
   faMobileAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const infor = [
   {
@@ -42,43 +43,53 @@ const infor = [
     icon: faShieldAlt,
     descricao:
       "Luctus quis nibh sit amet, placerat faucibus ante. Sed ut imperdiet felis.",
-  }
+  },
 ];
+
+//  Global object
+let titleModal = '';
 
 function Card(props) {
   const { titleCard, cardName, mt4, descCard } = props;
+
+  const handleModal = (titulo) => {
+
+    console.log("Evento handleModal => ", titulo);
+    titleModal = titulo
+  };
+
   return (
     <div className={`card ${mt4}`} style={{ width: "26rem" }}>
       <div className="card-body">
-        <a
+        <Link
+          to="/#"
           className="text-muted nounderline text-decoration-none"
-          href="/#"
           data-toggle="modal"
-          data-target="#exampleModalCenter"
+          data-target="#modalcards"
+          onClick={() => {
+            handleModal(titleCard);
+          }}
         >
-          <div className="d-flex flex-row justify-content-start">
+          <div id="icon" className="d-flex flex-row justify-content-start">
             <div
-             style={{ minWidth: 72}}
-              name="icon"
+              style={{ minWidth: 72 }}
               className="d-flex justify-content-start pt-4 pb-4 pe-4"
             >
               <FontAwesomeIcon icon={cardName} size="3x" color="#89b04b" />
             </div>
-            <div name="desc">
-              <h5 className="card-title font-color-green">{titleCard}</h5>
-              <h6 className="card-subtitle mb-2 text-muted" hidden>
-                Card subtitle
-              </h6>
+            <div id="descricao">
+              <h5 id="tituloCard" className="card-title font-color-green">{titleCard}</h5>
               <p className="card-text font-color-green">{descCard}</p>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
 }
 
 const MainCards = () => {
+    
   return (
     <>
       <div className="container">
@@ -98,17 +109,20 @@ const MainCards = () => {
       {/* <!-- Modal --> */}
       <div
         className="modal fade"
-        id="exampleModalCenter"
+        id="modalcards"
         tabIndex={-1}
         role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
+        aria-labelledby="modalcards_top"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div
+          className="modal-dialog modal-lg modal-dialog-centered"
+          role="document"
+        >
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLongTitle">
-                Modal title
+                {titleModal}
               </h5>
               <button
                 type="button"
@@ -229,7 +243,7 @@ const MainCards = () => {
                   </div>
                 </div>
               </div>
-               {/* FINAL ACCORDION */}
+              {/* FINAL ACCORDION */}
             </div>
             <div className="modal-footer">
               <button
