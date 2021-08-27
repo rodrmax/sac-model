@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
-import queryString from 'query-string'
-import BrandEnum from '../../components/util/brand'
+import BrandEnum, { BrandQueryString } from '../../components/util/brand'
 
 function LongCard(props) {
   const { titleCard, imagem, cardtype, margin, marca } = props;
@@ -56,7 +55,7 @@ const SubCards = (props) => {
 
   const history = useHistory()
   //Get value query string
-  const { marca } = queryString.parse(history.location.search)
+  const marca = BrandQueryString(history)
 
   return (
     <div className="container">

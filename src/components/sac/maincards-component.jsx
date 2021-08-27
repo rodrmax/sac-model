@@ -8,9 +8,10 @@ import {
   faIdCard,
   faMobileAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-import { HeaderFooter } from '../util/colorBrand';
+import { HeaderFooter } from "../util/colorBrand";
+import BrandEnum, { BrandQueryString } from "../util/brand";
 
 const infor = [
   {
@@ -49,15 +50,16 @@ const infor = [
 ];
 
 //  Global object
-let titleModal = '';
+let titleModal = "";
 
 function Card(props) {
-  const { titleCard, cardName, mt4, descCard, color } = props;
+  const { titleCard, cardName, mt4, descCard, color, marca } = props;
 
   const handleModal = (titulo) => {
-    titleModal = titulo
+    titleModal = titulo;
   };
-  
+
+  const marcaEnum = BrandEnum();
 
   return (
     <div className={`card ${mt4}`} style={{ width: "26rem" }}>
@@ -79,8 +81,26 @@ function Card(props) {
               <FontAwesomeIcon icon={cardName} size="3x" color={`${color}`} />
             </div>
             <div id="descricao">
-              <h5 id="tituloCard" className="card-title font-color-green">{titleCard}</h5>
-              <p className="card-text font-color-green">{descCard}</p>
+              <h5 id="tituloCard" className={
+                  marca === marcaEnum.p
+                    ? `card-text font-color-green`
+                    : marca === marcaEnum.ex
+                    ? `card-text font-color-ex`
+                    : `card-text font-color-blk`
+                }>
+                {titleCard}
+              </h5>
+              <p
+                className={
+                  marca === marcaEnum.p
+                    ? `card-text font-color-green`
+                    : marca === marcaEnum.ex
+                    ? `card-text font-color-ex`
+                    : `card-text font-color-blk`
+                }
+              >
+                {descCard}
+              </p>
             </div>
           </div>
         </Link>
@@ -90,10 +110,12 @@ function Card(props) {
 }
 
 const MainCards = (props) => {
-    
   const { canal } = props;
-  const color = HeaderFooter(canal)
-  console.log('Value Card Main ==> ', color)
+  const color = HeaderFooter(canal);
+
+  const history = useHistory();
+  //Get value query string
+  const marca = BrandQueryString(history);
 
   return (
     <>
@@ -107,6 +129,7 @@ const MainCards = (props) => {
               color={color}
               mt4="mt-4"
               key={index}
+              marca={marca}
             />
           ))}
         </div>
