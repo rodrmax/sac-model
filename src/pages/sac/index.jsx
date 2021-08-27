@@ -1,16 +1,31 @@
+import { useState } from "react";
+import { useHistory } from 'react-router-dom'
+
 import MainCards from "../../components/sac/maincards-component";
 import SubCards from "../../components/sac/subcards-component";
 import HeaderTop from "../../components/header";
 import FindComponent from "../../components/sac/search-component";
 import TopicsComponent from "../../components/sac/topics-component";
 
+
 function Sac() {
+  
+  const [marca] = useState('')
+
+  const history = useHistory()
+
+  console.log('Print History ==> ', history)
+  
+  // useEffect(() => {
+  //   setMarca("pa-o")
+  // }, [marca])
+  
   return (
     <>
       <div className="container-flud">
         <div className="#">
           {/* Header */}
-          <HeaderTop />
+          <HeaderTop canal={marca} />
           <div className="col-12 col-md-12 col-xl-12 bd-content">
             <div className="d-flex flex-column">
               <div className="container p-0">
@@ -24,14 +39,14 @@ function Sac() {
             style={{ backgroundColor: "rgba(136, 176, 75, 0.1)" }}
           >
             <div className="col-12 col-md-12 col-xl-12 bd-content">
-              <FindComponent />
+              <FindComponent canal={marca} />
 
-              <TopicsComponent />
+              <TopicsComponent canal={marca}  />
             </div>
           </div>
           <div className="col-12 col-md-12 col-xl-12 bd-content">
             <div className="d-flex flex-column">
-              <SubCards />
+              <SubCards canal={marca}  />
             </div>
           </div>
         </div>
