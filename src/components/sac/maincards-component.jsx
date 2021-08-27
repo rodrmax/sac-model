@@ -10,6 +10,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
+import { HeaderFooter } from '../util/colorBrand';
+
 const infor = [
   {
     titulo: "Seus pedidos",
@@ -50,13 +52,12 @@ const infor = [
 let titleModal = '';
 
 function Card(props) {
-  const { titleCard, cardName, mt4, descCard } = props;
+  const { titleCard, cardName, mt4, descCard, color } = props;
 
   const handleModal = (titulo) => {
-
-    console.log("Evento handleModal => ", titulo);
     titleModal = titulo
   };
+  
 
   return (
     <div className={`card ${mt4}`} style={{ width: "26rem" }}>
@@ -75,7 +76,7 @@ function Card(props) {
               style={{ minWidth: 72 }}
               className="d-flex justify-content-start pt-4 pb-4 pe-4"
             >
-              <FontAwesomeIcon icon={cardName} size="3x" color="#89b04b" />
+              <FontAwesomeIcon icon={cardName} size="3x" color={`${color}`} />
             </div>
             <div id="descricao">
               <h5 id="tituloCard" className="card-title font-color-green">{titleCard}</h5>
@@ -88,8 +89,12 @@ function Card(props) {
   );
 }
 
-const MainCards = () => {
+const MainCards = (props) => {
     
+  const { canal } = props;
+  const color = HeaderFooter(canal)
+  console.log('Value Card Main ==> ', color)
+
   return (
     <>
       <div className="container">
@@ -99,6 +104,7 @@ const MainCards = () => {
               cardName={item.icon}
               titleCard={item.titulo}
               descCard={item.descricao}
+              color={color}
               mt4="mt-4"
               key={index}
             />

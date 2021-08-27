@@ -9,8 +9,8 @@ const Routers = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/?marca=p" component={Sac}></Route>
-                <Redirect exact from="/" to="/?marca=p" />
+                <Route exact path="/sac" component={Sac}></Route>
+                <Redirect exact from="/" to="/sac?marca=p" />
                 <Route path="*" component={Page404}></Route>
             </Switch>
         </BrowserRouter>

@@ -1,7 +1,12 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
+import queryString from 'query-string'
+import BrandEnum from '../../components/util/brand'
 
 function LongCard(props) {
-  const { titleCard, imagem, cardtype, margin } = props;
+  const { titleCard, imagem, cardtype, margin, marca } = props;
+  const marcaEnum = BrandEnum();
+
   return (
     <div className={`card p-0 mb-3 ${margin}`} style={{ width: "19.8rem" }}>
       <img
@@ -35,7 +40,7 @@ function LongCard(props) {
         <div className="card-body text-center">
           <button
             name="suportbot"
-            className="btn btn-success white"
+            className={marca === marcaEnum.p ? `btn btn-success white` : marca === marcaEnum.ex ? `btn btn-danger white` : `btn btn-secondary white`}
             onClick={() => {}}
           >
             Chatbot
@@ -46,7 +51,13 @@ function LongCard(props) {
   );
 }
 
-const SubCards = () => {
+const SubCards = (props) => {
+
+
+  const history = useHistory()
+  //Get value query string
+  const { marca } = queryString.parse(history.location.search)
+
   return (
     <div className="container">
       <div className="row mt-4 justify-content-center col-xs-12">
@@ -55,20 +66,24 @@ const SubCards = () => {
           imagem="bot_.png"
           cardtype="bot"
           margin="me-3"
+          marca={marca}
         />
         <LongCard
           titleCard="Central de atendimento do site"
           imagem="central_atendimento_site.png"
           margin="me-3"
+          marca={marca}
         />
         <LongCard
           titleCard="Central de atendimento das lojas"
           imagem="central_atendimento.png"
           margin="me-3"
+          marca={marca}
         />
         <LongCard
           titleCard="Central de atendimento cartão fidelidade"
           imagem="fidelidade.png"
+          marca={marca}
         />
       </div>
     </div>
